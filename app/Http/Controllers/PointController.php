@@ -78,6 +78,11 @@ class PointController extends Controller
                 ->with('status', "Point '" . request()->name . "' was updated!");
     }
 
+    /**
+     * Finds the nearest and farthest points base on Pythagorean theorem.
+     *
+     * @return void
+     */
     public function siblings()
     {
         // Current point
