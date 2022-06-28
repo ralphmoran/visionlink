@@ -14,14 +14,14 @@ Compute all point distances from point (0, 0), store this value in the point tab
 
 > Sample: A(1, 1): d(1)
 
-> d = √(x2-x1)<sup>2</sup> * (y2-y1)<sup>2</sup>]
+> d = √(x2-x1)<sup>2</sup> * (y2-y1)<sup>2</sup>
 
 
 ### SQL
 
 ```sql
-$nearthest = "SELECT name, x, y FROM points WHERE d <= 1 ORDER BY d DESC LIMIT 10";
-$farthest = "SELECT name, x, y FROM points WHERE d >= 1 ORDER BY d ASC LIMIT 10";
+$nearest = "SELECT name, x, y FROM points WHERE (1 - d) <= 1 ORDER BY d ASC LIMIT 10";
+$farthest = "SELECT name, x, y FROM points WHERE (1 - d) >= 1 ORDER BY d DESC LIMIT 10";
 ```
 
 ## Requirements
