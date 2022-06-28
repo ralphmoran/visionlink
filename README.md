@@ -1,8 +1,10 @@
 ## Main problem to solve
 
-Create a CRUD panel for the Nearthest and farthest points.
+Create a CRUD panel for the Nearest and farthest points.
 
 I used the Pythagorean theorem to find the distance between points in a 2d space. Worked flawlessly!
+
+<img width="397" alt="Screen Shot 2022-06-27 at 5 45 32 PM" src="https://user-images.githubusercontent.com/5456155/176063109-7db96933-968d-4e72-b6c5-69bd1dea4f59.png">
 
 <img width="1161" alt="Screen Shot 2022-06-27 at 5 39 17 PM" src="https://user-images.githubusercontent.com/5456155/176062614-801f0076-4eb5-44a7-b246-9db6b41f1963.png">
 
@@ -21,7 +23,6 @@ Compute all point distances from point (0, 0), store this value in the points ta
 > Sample: A(1, 1): d(1)
 
 > d = √(x2-x1)<sup>2</sup> * (y2-y1)<sup>2</sup>
-
 
 ### SQL
 
