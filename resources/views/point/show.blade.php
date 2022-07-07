@@ -26,6 +26,7 @@
                             @input="upperCase"
                             type="text"
                             name="name"
+                            ref="point_name"
                             id="name"
                             required
                             placeholder="Add the new point name..."
@@ -83,7 +84,7 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Nearest point(s) at distance {{ $point->name }}({{ $point->x }}, {{ $point->y }})</th>
+                <th>Nearest point(s) at distance @{{ current_point }}</th>
             </tr>
         </thead>
         <tbody v-html="nearest"></tbody>
@@ -92,7 +93,7 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Farthest point(s) at distance {{ $point->name }}({{ $point->x }}, {{ $point->y }})</th>
+                <th>Farthest point(s) at distance @{{ current_point }}</span></th>
             </tr>
         </thead>
         <tbody v-html="farthest"></tbody>
@@ -107,6 +108,7 @@
                 return {
                     nearest: null,
                     farthest: null,
+                    current_point: ''
                 }
             },
             mounted: function () {
@@ -115,12 +117,20 @@
             methods: {
                 upperCase: function(e) {
                     e.target.value = e.target.value.toUpperCase()
+
+                    var app = this;
+                    var point_x = app.$refs.point_x.value;
+                    var point_y = app.$refs.point_y.value;
+
+                    this.current_point =  app.$refs.point_name.value + '(' + point_x + ', ' + point_y + ')';
                 },
                 getPointSiblings: function() {
 
                     var app = this;
                     var point_x = app.$refs.point_x.value;
                     var point_y = app.$refs.point_y.value;
+
+                    this.current_point =  app.$refs.point_name.value + '(' + point_x + ', ' + point_y + ')';
 
                     fetch("/siblings/", {
                         method: 'POST',

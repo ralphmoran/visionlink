@@ -116,6 +116,12 @@
                     var point_x = app.$refs.point_x.value;
                     var point_y = app.$refs.point_y.value;
 
+                    console.log(point_x, point_y);
+                    console.log(new_point.x, new_point.y);
+
+                    // this.new_point.x = point_x;
+                    // this.new_point.y = point_y;
+
                     fetch("/siblings/", {
                         method: 'POST',
                         headers: {
